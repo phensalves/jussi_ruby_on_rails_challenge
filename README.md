@@ -4,8 +4,8 @@ Construção de API de heróis da Marvel
 Você deverá criar uma conta no site "https://developer.marvel.com" e gerar uma api key. Feito isso, construa uma estrutura de api utilizando Ruby on Rails que irá consumir a API que deverá ter endpoints que listarão os personagens, e outro endpoint que exibirá os detalhes desse personagem com as HQ's que os mesmos pertençam. Será interessante dispor de endpoints de um CRUD. Todos os requests deverão ter o mínimo de segurança aceitável por parte da API.  Não utilize nenhuma gem externa para a construção da API e é importante utilizar o Rails a partir da versão 3 ou 4 (5 é um diferencial).
 
 Como fator diferencial, pedimos para espetar essa API no Elasticsearch e utilize a gem oficial do Elasticsearch:
-## * 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
-## * 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+* 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+* 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 
 E também demonstre algum conhecimento com sidekiq para eventualmente gerenciar jobs assíncronos.
 

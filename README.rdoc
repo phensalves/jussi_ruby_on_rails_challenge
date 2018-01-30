@@ -3,13 +3,15 @@ Construção de API de heróis da Marvel
 
 Antes de mais nada faça um fork desse projeto.
 
-Você deverá criar uma conta no site "https://developer.marvel.com" e gerar uma api key para consumo desta. Feito isso, construa uma estrutura de api utilizando Ruby on Rails que deverá ter endpoints que listarão os personagens, e outro endpoint que exibirá os detalhes desse personagem com as HQ's que os mesmos pertençam. Lembre-se de persistir esses dados em banco e construir os devidos relacionamentos.
+Você deverá criar uma conta no site "https://developer.marvel.com" e gerar uma api key para consumo desta. Feito isso, consuma essa API da marvel e persista alguns registros em seu próprio banco de dados.
+
+Então, construa uma estrutura de api própria, utilizando Ruby on Rails que deverá ter endpoints que listarão os personagens, e outro endpoint que exibirá os detalhes desse personagem com as HQ's que os mesmos pertençam. Lembre-se de construir os devidos relacionamentos.
 
 === Estrutura do banco
-Personagem: deverá ter ao menos o id marvel, nome, imagem e "modificado em" (todos disponibilizados na api externa)
+Personagem: deverá ter ao menos id marvel, nome, imagem e "modificado em" (todos disponibilizados na api externa)
 Quadrinho: título, número da capa e imagem (todos disponibilizados na api externa)
 
-Será interessante dispor de endpoints de um CRUD para sua própria API. Todos os requests deverão ter o mínimo de segurança aceitável por parte da API.
+Será interessante dispor de endpoints de um CRUD em sua própria api e rotas que aceitem parâmetros para efetuar buscas. Todos os requests deverão ter o mínimo de segurança aceitável por parte da API.
 
 Não utilize nenhuma gem externa para a construção da API e é importante utilizar o Rails a partir da versão 3 ou 4 (5 é um diferencial).
 

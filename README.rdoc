@@ -1,4 +1,4 @@
-# Jussi Ruby on Rails Challenge
+= Jussi Ruby on Rails Challenge
 Construção de API de heróis da Marvel
 
 Você deverá criar uma conta no site "https://developer.marvel.com" e gerar uma api key para consumo desta. Feito isso, construa uma estrutura de api utilizando Ruby on Rails que deverá ter endpoints que listarão os personagens, e outro endpoint que exibirá os detalhes desse personagem com as HQ's que os mesmos pertençam. Lembre-se de persistir esses dados em banco e construir os devidos relacionamentos.

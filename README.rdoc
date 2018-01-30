@@ -1,9 +1,9 @@
-# Jüssi Ruby on Rails Challenge
+# Jussi Ruby on Rails Challenge
 Construção de API de heróis da Marvel
 
 Você deverá criar uma conta no site "https://developer.marvel.com" e gerar uma api key para consumo desta. Feito isso, construa uma estrutura de api utilizando Ruby on Rails que deverá ter endpoints que listarão os personagens, e outro endpoint que exibirá os detalhes desse personagem com as HQ's que os mesmos pertençam. Lembre-se de persistir esses dados em banco e construir os devidos relacionamentos.
 
-# Estrutura do banco
+=== Estrutura do banco
 Personagem: deverá ter ao menos o id marvel, nome, imagem e "modificado em" (todos disponibilizados na api externa)
 Quadrinho: título, número da capa e imagem (todos disponibilizados na api externa)
 
@@ -17,7 +17,7 @@ Como fator diferencial, pedimos para espetar essa API no Elasticsearch e utilize
 
 Para esse caso, ao menos disponibilize o endpoint de listagem no Elasticsearch.
 
-# Exigências:
+=== Exigências:
 - Rails 3, 4 ou 5
 - Ruby a partir do 2.2.2
 - Elasticsearch
@@ -29,7 +29,7 @@ Para esse caso, ao menos disponibilize o endpoint de listagem no Elasticsearch.
 
 Pedimos que abra o pull request para o repositório assim que o teste for finalizado.
 
-# Diferencial:
+=== Diferencial:
 - Sidekiq para eventualmente gerenciar jobs assíncronos
 - Disponibilizar um link para a aplicaço hospedada no Heroku
 - Habilitar algum tipo de busca no elasticsearch

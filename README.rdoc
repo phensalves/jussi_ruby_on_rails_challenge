@@ -23,7 +23,6 @@ Para esse caso, ao menos disponibilize o endpoint de listagem no Elasticsearch.
 - Rails 3, 4 ou 5
 - Ruby a partir do 2.2.2
 - Elasticsearch
-- Sidekiq
 - API REST (JSON)
 - Documentação explicando como subir o projeto em desenvolvimento, e o funcionamento de seu sistema assim como execução dos testes
 

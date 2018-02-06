@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+a_character:
+  id: 2
+  name: Hulk
+  marvel_id: 1
+  modified: Modified-string-3
+  image_path: http://i.annihil.us/u/prod/marvel/i/mg/5/a0/538615ca33ab0/portrait_uncanny.jpg
+  description: An Incredible Green Description
+
+another_character:
+  id: 6
+  name: Thor
+  marvel_id: 42
+  modified: Modified-string-4
+  image_path: http://i.annihil.us/u/prod/marvel/i/mg/d/d0/5269657a74350/portrait_uncanny.jpg
+  description: A Godly Description

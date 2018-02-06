@@ -1,3 +1,7 @@
 puts "Importing models for elasticsearch"
-Character.import
-Comic.import
+begin
+  Character.import
+  Comic.import
+rescue
+  puts "Failed to import models to elasticsearch. Make sure elasticsearch service is up and running!"
+end

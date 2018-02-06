@@ -38,3 +38,7 @@ Os registros são todos adicionados a partir da adição de um personagem. **Nã
 # Sobre as buscas
 
 As buscas são feitas de tal forma que os termos usados são procurados tanto nos objetos do tipo "Character" quanto nos objetos do tipo "Comics". Quando a busca termina, são apresentados separadamente todos os registros de cada um dos tipos que tiveram um *match* com os termos usados.
+
+# Testes
+
+Alguns testes unitários foram implementados. Para rodá-los, basta usar o comando ``rails test``. Alguns testes estão com skip devido a problemas de interação com o elasticsearch (que não deveria estar acontecendo. Os testes estão corretos).

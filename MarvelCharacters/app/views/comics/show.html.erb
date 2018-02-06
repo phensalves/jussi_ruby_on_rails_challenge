@@ -1,0 +1,22 @@
+<div class="container"> 
+  <p>
+    <p>
+      <h1> <%= @comic.title %> </h1>
+    </p>
+    <p>
+      <h><%= image_tag @comic.image_path %></h>
+    </p>
+    <p>
+      <h>Marvel ID: <%= @comic.marvel_id %></h>
+    </p>
+    <p>
+      <h>Issue Number: <%= @comic.issue_number %></h>
+    </p>
+    <p>
+      <h>Modified: <%= @comic.modified %></h>
+    </p>
+    <p>
+      <h><%= @comic.description %><h>
+    </p>
+  </p>
+</div>

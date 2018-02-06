@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>New Character</h1>
+
+  <% if flash[:alert] %>
+    <div class="alert"><%= flash[:alert] %></div>
+  <% end %>
+
+  <%= form_with scope: :character, url: characters_path, local: true do |form| %>
+      <p>
+        <%= form.label :name %><br>
+        <%= form.text_field :name %>
+      </p>
+
+      <p>
+        <%= form.label :marvel_public_key %><br>
+        <%= form.text_field :marvel_public_key %>
+      </p>
+
+      <p>
+        <%= form.label :marvel_private_key %><br>
+        <%= form.text_field :marvel_private_key %>
+      </p>
+    
+      <p>
+        <%= form.submit %>
+      </p>
+    <% end %>
+</div>

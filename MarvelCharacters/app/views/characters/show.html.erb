@@ -1,5 +1,9 @@
 <div class="container"> 
   <p>
+    Click <%= link_to "here", controller: "api", action: "character", id: @character.id %> to access the API end-point to get the raw data (json)!
+  </p>
+
+  <p>
     <p>
       <h1> <%= @character.name %> </h1>
     </p>

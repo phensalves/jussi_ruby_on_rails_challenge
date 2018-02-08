@@ -5,6 +5,12 @@
     <h>Total Characters: <%= @characters.length %></h>
   </p>
 
+  <% @characters = @characters.sort_by{ |t| t.name}  %>
+
+  <p>
+    Click <%= link_to "here", controller: "api", action: "characters" %> to access the API end-point to get the raw data (json)!
+  </p>
+
   <% if flash[:notice] %>
     <div class="notice"><%= flash[:notice] %></div>
   <% end %>
@@ -13,7 +19,6 @@
     You can add a new character <%= link_to 'here', new_character_path %>
   </p>
 
-  <% @characters = @characters.sort_by{ |t| t.name}  %>  
   <% @characters.each do |character| %>
     <p>
       <h><%= link_to character.name, character_path(character) %></h>

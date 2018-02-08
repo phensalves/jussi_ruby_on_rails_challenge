@@ -6,6 +6,7 @@ class SearchController < ApplicationController
         else
             @characters = Character.search params[:term], :size => 100
             @comics = Comic.search params[:term], :size => 100
+            @query = params[:term]
         end
 
         # Will fail if Elasticsearch service is not running on port 9200

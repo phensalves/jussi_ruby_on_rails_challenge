@@ -4,7 +4,10 @@
         A maximum of 100 hits can be displayed for each category (Character and Comic)
     </p>
     <p>
-        Got a total of <%= @characters.size + @comics.size %>
+        Got a total of <%= @characters.size + @comics.size %> hits for the query '<%= @query %>'
+    </p>
+    <p>
+        Click <%= link_to "here", controller: "api", action: "search", term: @query %> to access the API end-point to get the raw data (json)!
     </p>
 </div>
 

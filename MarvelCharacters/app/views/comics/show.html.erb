@@ -1,5 +1,9 @@
 <div class="container"> 
   <p>
+    Click <%= link_to "here", controller: "api", action: "comic", id: @comic.id %> to access the API end-point to get the raw data (json)!
+  </p>
+  
+  <p>
     <p>
       <h1> <%= @comic.title %> </h1>
     </p>

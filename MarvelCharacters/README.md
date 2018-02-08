@@ -42,3 +42,39 @@ As buscas são feitas de tal forma que os termos usados são procurados tanto no
 # Testes
 
 Alguns testes unitários foram implementados. Para rodá-los, basta usar o comando ``rails test``. Alguns testes estão com skip devido a problemas de interação com o elasticsearch (que não deveria estar acontecendo. Os testes estão corretos).
+
+# API
+
+Foi integrada à versão com interface gráfica uma API com end-points para acesso ao dados 'crus', em JSON. O objetivo desta seção é eplicar o seu funcionamento brevemente.
+
+Basicamente, os dados que são mostrados nos formato JSON são precisamente os registros que estão no banco. É possível acessá-los tanto via interface gráfica quanto diretamente pela URL. As seguintes rotas com interface gráfica:
+
+* GET /characters (characters#index)
+* GET /characters/:id (characters#show)
+* GET /comics (comics#index)
+* GET /comics/:id (comics#show)
+* GET /search (search#search)
+
+possuem acesso aos dados na API (basta clicar no respectivo link exibido na página). Ao clicar no link nestas páginas, o usuário é redirecionado para uma página com os dados crus em JSON outrora presentes na interface gráfica. A partir destes links, os seguintes redirecionamentos são feitos:
+
+* GET /characters (characters#index)    ----> GET /api/characters (api#characters)
+* GET /characters/:id (characters#show) ----> GET /api/characters/:id (api#character)
+* GET /comics (comics#index)            ----> GET /api/comics (api#comics)
+* GET /comics/:id (comics#show)         ----> GET /api/comics/:id (api#comic)
+* GET /search (search#search)           ----> GET /api/search (api#search)
+
+É possível acessar as rotas da API listadas acima diretamente pela a URL do browser também. Supondo uma instância local da aplicação, os seguintes exemplos são válidos:
+
+* localhost:3000/api/characters => listará todos os personagens do banco em um JSON.
+* localhost:3000/api/characters/42 => listará as informações da personagem de ID = 42 em um JSON.
+* localhost:3000/api/comics => listará todas as HQs do banco em um JSON.
+* localhost:3000/api/comics/42 => listará as informações da HQ de ID = 42 em um JSON.
+
+Para usar o search, a construção é um pouco diferente, mas o exemplo abaixo será suficiente para a compreensão:
+
+* localhost:3000/api/search?term=avengers+wolverine => listará os dados do resultado da busca "avengers wolverine". 
+
+Note que o serviço do elasticsearch deve estar rodando na porta 9200 ou a buscará falhará. Ao falhar na busca da API, o usuário será redirecionado para a página de erro da interface gráfica normalmente, como se tivesse feito a query na própria interface gráfica.
+
+
+

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+a_comic:
+  id: 19
+  title: The Avengers
+  marvel_id: 4
+  issue_number: 2
+  modified: Modified-String-1
+  image_path: http://i.annihil.us/u/prod/marvel/i/mg/d/50/584f0c99aec9f/portrait_uncanny.jpg
+  description: The a_comic description
+
+another_comic:
+  id: 78
+  title: The Incredible Hulk
+  marvel_id: 2
+  issue_number: 1
+  modified: Modified-String-2
+  image_path: http://i.annihil.us/u/prod/marvel/i/mg/9/80/59b3104f67eaf/portrait_uncanny.jpg
+  description: The another_comic description

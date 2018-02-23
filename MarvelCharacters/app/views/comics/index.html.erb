@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Listing comics</h1>
+  <p>
+    Click <%= link_to "here", controller: "api", action: "comics" %> to access the API end-point to get the raw data (json)!
+  </p>
+
+  <p>
+    <h>Total Comics: <%= @comics.length %></h>
+  </p>
+
+  <% @comics = @comics.sort_by{ |t| t.title}  %>  
+  <% @comics.each do |comic| %>
+    <p>
+      <td><%= link_to comic.title, comic_path(comic) %></td>
+    </p>
+  <% end %>
+</div>

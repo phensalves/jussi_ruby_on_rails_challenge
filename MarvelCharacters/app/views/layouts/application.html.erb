@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MarvelCharacters</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <ul>
+      <li> <%= link_to 'Comics', comics_path %> </li>
+      <li> <%= link_to 'Characters', characters_path %> </li>
+      <li> <%= link_to 'Home', root_path %> </li>
+    </ul>
+    <%= render 'search/form' %>
+    <%= yield %>
+  </body>
+</html>

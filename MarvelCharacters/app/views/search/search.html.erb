@@ -1,0 +1,46 @@
+<div class="container"> 
+    <h1>Search Results</h1>
+    <p>
+        A maximum of 100 hits can be displayed for each category (Character and Comic)
+    </p>
+    <p>
+        Got a total of <%= @characters.size + @comics.size %> hits for the query '<%= @query %>'
+    </p>
+    <p>
+        Click <%= link_to "here", controller: "api", action: "search", term: @query %> to access the API end-point to get the raw data (json)!
+    </p>
+</div>
+
+<div class="container">
+    <% if @characters %>
+        <p>
+            <h>Characters: <%= @characters.size %> hits</h>
+        </p>
+        <ul class="search_results">
+            <% @characters.each do |character| %>
+                <p>
+                    <h><%= link_to character.name, controller: "characters", action: "show", id: character._id %></h>
+                </p>
+            <% end %>
+        </ul>
+    <% else %>
+        <p>Your search did not match any character documents.</p>
+    <% end %>
+</div>
+
+<div class="container">
+    <% if @comics %>
+        <p>
+            <h>Comics: <%= @comics.size %> hits</h>
+        </p>
+        <ul class="search_results">
+            <% @comics.each do |comic| %>
+                <p>
+                    <h><%= link_to comic.title, controller: "comics", action: "show", id: comic._id %></h>
+                </p>
+            <% end %>
+        </ul>
+    <% else %>
+        <p>Your search did not match any comic documents.</p>
+    <% end %>
+</div>

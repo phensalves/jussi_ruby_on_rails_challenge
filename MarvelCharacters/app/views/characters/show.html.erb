@@ -1,0 +1,50 @@
+<div class="container"> 
+  <p>
+    Click <%= link_to "here", controller: "api", action: "character", id: @character.id %> to access the API end-point to get the raw data (json)!
+  </p>
+
+  <p>
+    <p>
+      <h1> <%= @character.name %> </h1>
+    </p>
+    <p>
+      <h><%= image_tag @character.image_path %></h>
+    </p>
+    <p>
+      <h>Marvel ID: <%= @character.marvel_id %></h>
+    </p>
+    <p>
+      <h>Modified: <%= @character.modified %></h>
+    </p>
+    <p>
+      <h><%= @character.description %><h>
+    </p>
+  </p>
+</div>
+
+<div class="container">
+    <p>
+      <h1> Some <%= @character.name %>  comics: </h1>
+    </p>
+    <% @character_comics = @character_comics.sort_by{ |t| t.title}  %>  
+    <% @character_comics.each do |character_comic| %>
+      <p>
+        <h><%= character_comic.title %></h>
+      </p>
+      <p>
+        <h><%= image_tag character_comic.image_path %></h>
+      </p>
+      <p>
+        <h>Issue Number: <%= character_comic.issue_number %></h>
+      </p>
+      <p>
+        <h>Marvel ID: <%= character_comic.marvel_id %></h>
+      </p>
+      <p>
+        <h>Modified: <%= character_comic.modified %></h>
+      </p>
+      <p>
+        <h><%= character_comic.description %></h>
+      </p>
+    <% end %>
+</div>

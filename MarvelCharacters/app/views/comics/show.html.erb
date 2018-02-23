@@ -1,0 +1,26 @@
+<div class="container"> 
+  <p>
+    Click <%= link_to "here", controller: "api", action: "comic", id: @comic.id %> to access the API end-point to get the raw data (json)!
+  </p>
+  
+  <p>
+    <p>
+      <h1> <%= @comic.title %> </h1>
+    </p>
+    <p>
+      <h><%= image_tag @comic.image_path %></h>
+    </p>
+    <p>
+      <h>Marvel ID: <%= @comic.marvel_id %></h>
+    </p>
+    <p>
+      <h>Issue Number: <%= @comic.issue_number %></h>
+    </p>
+    <p>
+      <h>Modified: <%= @comic.modified %></h>
+    </p>
+    <p>
+      <h><%= @comic.description %><h>
+    </p>
+  </p>
+</div>

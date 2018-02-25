@@ -10,15 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180222214728) do
+ActiveRecord::Schema.define(version: 20180225161508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "character_comics", force: :cascade do |t|
+    t.bigint "character_id"
+    t.bigint "comic_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_character_comics_on_character_id"
+    t.index ["comic_id"], name: "index_character_comics_on_comic_id"
+  end
+
   create_table "characters", force: :cascade do |t|
+    t.string "char_id"
     t.string "name"
+    t.string "image"
+    t.datetime "modified"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "comic_chars", force: :cascade do |t|
+    t.bigint "comic_id"
+    t.bigint "character_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_comic_chars_on_character_id"
+    t.index ["comic_id"], name: "index_comic_chars_on_comic_id"
+  end
+
+  create_table "comics", force: :cascade do |t|
+    t.string "title"
+    t.string "cover_number"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "character_comics", "characters"
+  add_foreign_key "character_comics", "comics"
+  add_foreign_key "comic_chars", "characters"
+  add_foreign_key "comic_chars", "comics"
 end

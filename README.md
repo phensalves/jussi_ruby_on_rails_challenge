@@ -46,6 +46,8 @@ Para rodar local, faça um clone do projeto e siga os passo:
 
     ElasticSearch
 
+      - Model.__elasticsearch__.create_index!
+
       - Usar Model.import (Comic.import e Character.import)
 
 ### Exmplos

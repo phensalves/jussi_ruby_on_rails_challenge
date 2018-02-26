@@ -1,24 +1,32 @@
-# README
+Characters
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+create
+curl -d "character[char_id]=999999&character[name]=deadpool&character[image]=deadpool.jpg" -X POST http://localhost:3000/api/v1/characters
 
-Things you may want to cover:
+index
+curl http://localhost:3000/api/v1/characters
+show
+curl http://localhost:3000/api/v1/characters/100
 
-* Ruby version
+update
+curl -d "character[char_id]=999999&character[name]=deadpool&character[image]=deadpool.jpg" -X PATCH http://localhost:3000/api/v1/characters/106
 
-* System dependencies
+destroy
+curl -X DELETE http://localhost:3000/api/v1/characters/106
 
-* Configuration
 
-* Database creation
+Comics
 
-* Database initialization
+create
+curl -d "comic[title]=999999&comic[cover_number]=comic---1&comic[image]=deadpool.jpg" -X POST http://localhost:3000/api/v1/comics
 
-* How to run the test suite
+index
+curl http://localhost:3000/api/v1/comics
+show
+curl http://localhost:3000/api/v1/comics/100
 
-* Services (job queues, cache servers, search engines, etc.)
+update
+curl -d "comic[cover_numver]=999999&comic[title]=deadpool&comic[image]=deadpool.jpg" -X PATCH http://localhost:3000/api/v1/comics/848
 
-* Deployment instructions
-
-* ...
+destroy
+curl -X DELETE http://localhost:3000/api/v1/comics/848

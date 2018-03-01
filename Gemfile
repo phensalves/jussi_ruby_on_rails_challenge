@@ -25,11 +25,17 @@ gem 'puma', '~> 3.7'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
+# Rack middleware for blocking & throttling abusive requests
+gem 'rack-attack'
+
 # Simple, efficient background processing for Ruby.
 gem 'sidekiq'
 
 # Rest Client
 gem 'httparty'
+
+# Haml is a templating engine for HTML
+gem 'haml'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

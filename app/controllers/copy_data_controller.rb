@@ -1,4 +1,4 @@
-class TestController < ApplicationController
+class CopyDataController < ApplicationController
   def index
     MarvelWorker.perform_async
 

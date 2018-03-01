@@ -9,7 +9,7 @@ class MarvelWorker
     @public_key = '23f2f22c2cb4b14c5772e2ba3cffab1b'
 
     offset = Character.count
-    copy_characters(1, offset)
+    copy_characters(100, offset)
   end
 
   private

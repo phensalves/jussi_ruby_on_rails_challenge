@@ -37,6 +37,10 @@ gem 'httparty'
 # Haml is a templating engine for HTML
 gem 'haml'
 
+# Elasticsearch client and Ruby API
+gem 'elasticsearch-model', github: 'elastic/elasticsearch-rails', branch: '5.x'
+gem 'elasticsearch-rails', github: 'elastic/elasticsearch-rails', branch: '5.x'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

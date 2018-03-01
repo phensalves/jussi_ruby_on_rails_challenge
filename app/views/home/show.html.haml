@@ -1,1 +1,51 @@
-%h1 SHOW
+.container
+  .row.center
+    %br
+    = image_tag @character.thumbnail, class: "circle", alt: @character.name, width: 150
+    %h1.red-text.text-darken-4 #{@character.name}
+    %small Modified At: #{@character.modified.strftime("%B %d, %Y")} | Marvel ID: #{@character.marvel_id}
+
+  .row
+    .col.s6.center.offset-s3
+      %p.center #{@character.description}
+
+  - if !@character.comics.blank?
+    .row
+      %h3.red-text.text-darken-4 Comics
+      - @character.comics.each do |comic|
+        .col.s12
+          %h5.header #{comic.title}
+          .card.horizontal
+            - if !comic.thumbnail.nil?
+              .card-image
+                = image_tag comic.thumbnail, class: "circle", alt: comic.title
+            .card-stacked
+              .card-content
+                %p #{comic.description}
+  - if !@character.series.blank?
+    .row
+      %h3.red-text.text-darken-4 Series
+      - @character.series.each do |serie|
+        .col.s12
+          %h5.header #{serie.title}
+          .card.horizontal
+            - if !serie.thumbnail.nil?
+              .card-image
+                = image_tag serie.thumbnail, class: "circle", alt: serie.title
+            .card-stacked
+              .card-content
+                %p #{serie.description}
+
+  - if !@character.stories.blank?
+    .row
+      %h3.red-text.text-darken-4 Stories
+      - @character.stories.each do |story|
+        .col.s12
+          %h5.header #{story.title}
+          .card.horizontal
+            - if !story.thumbnail.nil?
+              .card-image
+                = image_tag story.thumbnail, class: "circle", alt: story.title
+            .card-stacked
+              .card-content
+                %p #{story.description}

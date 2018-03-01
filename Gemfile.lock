@@ -9,6 +9,23 @@ GIT
       hashie
     elasticsearch-rails (5.0.2)
 
+GIT
+  remote: https://github.com/kaminari/kaminari
+  revision: 8e3b9db8e8d64f76c3be7b0872ad27ae495a8e3a
+  specs:
+    kaminari (1.1.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.1.1)
+      kaminari-activerecord (= 1.1.1)
+      kaminari-core (= 1.1.1)
+    kaminari-actionview (1.1.1)
+      actionview
+      kaminari-core (= 1.1.1)
+    kaminari-activerecord (1.1.1)
+      activerecord
+      kaminari-core (= 1.1.1)
+    kaminari-core (1.1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -178,6 +195,7 @@ DEPENDENCIES
   elasticsearch-rails!
   haml
   httparty
+  kaminari!
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
   puma (~> 3.7)

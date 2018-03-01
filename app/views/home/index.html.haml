@@ -1,1 +1,26 @@
-%h1 INDEX
+.container
+  .row.center
+    %h1.red-text.text-darken-4 All characters
+  .row
+    %form.col.s12{action: root_path, method: "get"}
+      .row
+        .input-field.col.s12.center
+          %input.validate{type: :text, name: :keywords, value: params[:keywords]}
+          %label{for: :keywords} Search character
+
+  .row
+    %ul.collection
+      - @characteres.each do |character|
+        %li.collection-item.avatar
+          = image_tag character.thumbnail, class: "circle", alt: character.name
+          %span.title #{character.name}
+          %p
+            Marvel ID: #{character.marvel_id}
+            %br/
+            Modified At: #{character.modified.strftime("%B %d, %Y")}
+          %a.secondary-content{href: character_path(character.id)}
+            %i.material-icons.red-text.text-darken-4 add_circle_outline
+  .row
+    %ul.pagination
+      - if !@offset.nil?
+        = paginate @characteres

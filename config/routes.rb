@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   # front-end
   root to: 'home#index'
-  get 'character/:character_id' => 'home#show'
+  get 'character/:id' => 'home#show', as: :character
 
   # api
   namespace :api do

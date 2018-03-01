@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  marvel_id: 1
+  name: MyString
+  description: MyString
+  modified: 2018-02-28 14:19:32
+  thumbnail: MyString
+
+two:
+  marvel_id: 1
+  name: MyString
+  description: MyString
+  modified: 2018-02-28 14:19:32
+  thumbnail: MyString

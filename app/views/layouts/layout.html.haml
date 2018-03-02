@@ -12,7 +12,27 @@
       .nav-wrapper.container
         %a.brand-logo.center{href: root_path}
           = image_tag "/images/logo.png"
+          %ul#nav-mobile.right.hide-on-med-and-down
+            %li
+              %a.btn.yellow.red-text.text-darken-4.waves-effect.waves-yellow.modal-trigger{:href => "#api-link"} GET API LINK
+
     = yield
+
+    #api-link.modal
+      .modal-content
+        %h4 API LINKS
+        .collection
+          %a.collection-item{href: api_v1_characters_url, target: "_blank"}
+            %span.badge> accept: limit | offset
+            = api_v1_characters_url
+          %a.collection-item{href: api_v1_characters_search_url(keywords: "Ant%20Man"), target: "_blank"}
+            %span.badge> accept: limit | offset
+            = api_v1_characters_search_url(":keywords")
+          %a.collection-item{href: api_v1_character_url(53), target: "_blank"}
+            = api_v1_character_url(":character-id")
+        .modal-footer
+          %a.modal-action.modal-close.waves-effect.waves-yello.btn-flat{:href => "#!"} Ok
+
     %footer.page-footer.red.darken-4
       .footer-copyright
         .container.center

@@ -7,7 +7,6 @@
         .input-field.col.s12.center
           %input.validate{type: :text, name: :keywords, value: params[:keywords]}
           %label{for: :keywords} Search character
-
   .row
     %ul.collection
       - @characteres.each do |character|

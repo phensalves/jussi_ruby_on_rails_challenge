@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :characters
-      get 'characters/search/:keywords' => 'characters#search'
+      get 'characters/search/:keywords' => 'characters#search', as: :characters_search
     end
   end
 end

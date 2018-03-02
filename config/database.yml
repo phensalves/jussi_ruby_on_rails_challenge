@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  pool: 10
+  encoding: unicode
+  host: localhost
+
+development:
+  <<: *default
+  username: postgres
+  password: root
+  database: marve_db_dev
+
+test:
+  <<: *default
+  username: postgres
+  password: root
+  database: marve_db_test
+
+production:
+  <<: *default
+  database: marve_db
+  pool: 5

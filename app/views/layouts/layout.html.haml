@@ -1,0 +1,44 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1.0", :name => "viewport"}/
+    %title Marvel API
+    %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css", :media => "screen,projection", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "/assets/css/custom.css", :media => "screen,projection", :rel => "stylesheet", :type => "text/css"}/
+  %body
+    %nav.red.darken-4
+      .nav-wrapper.container
+        %a.brand-logo.center{href: root_path}
+          = image_tag "/images/logo.png"
+          %ul#nav-mobile.right.hide-on-med-and-down
+            %li
+              %a.btn.yellow.red-text.text-darken-4.waves-effect.waves-yellow.modal-trigger{:href => "#api-link"} GET API LINK
+
+    = yield
+
+    %footer.page-footer.red.darken-4
+      .footer-copyright
+        .container.center
+          Made by
+          %a.orange-text.text-lighten-3{href: "https://github.com/kayo-almeida", target: "_blank"} Kayo Almeida
+
+    #api-link.modal
+      .modal-content
+        %h4 API LINKS
+        .collection
+          %a.collection-item{href: api_v1_characters_url, target: "_blank"}
+            %span.badge> accept: limit | offset
+            = api_v1_characters_url
+          %a.collection-item{href: api_v1_characters_search_url(keywords: "Ant%20Man"), target: "_blank"}
+            %span.badge> accept: limit | offset
+            = api_v1_characters_search_url(":keywords")
+          %a.collection-item{href: api_v1_character_url(53), target: "_blank"}
+            = api_v1_character_url(":character-id")
+        .modal-footer
+          %a.modal-action.modal-close.waves-effect.waves-yello.btn-flat{:href => "#!"} Ok
+    / Scripts
+    %script{:src => "https://code.jquery.com/jquery-2.1.1.min.js"}
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"}
+    %script{:src => "/assets/js/custom.js"}

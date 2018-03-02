@@ -18,6 +18,12 @@
 
     = yield
 
+    %footer.page-footer.red.darken-4
+      .footer-copyright
+        .container.center
+          Made by
+          %a.orange-text.text-lighten-3{href: "https://github.com/kayo-almeida", target: "_blank"} Kayo Almeida
+
     #api-link.modal
       .modal-content
         %h4 API LINKS
@@ -32,12 +38,6 @@
             = api_v1_character_url(":character-id")
         .modal-footer
           %a.modal-action.modal-close.waves-effect.waves-yello.btn-flat{:href => "#!"} Ok
-
-    %footer.page-footer.red.darken-4
-      .footer-copyright
-        .container.center
-          Made by
-          %a.orange-text.text-lighten-3{href: "https://github.com/kayo-almeida", target: "_blank"} Kayo Almeida
     / Scripts
     %script{:src => "https://code.jquery.com/jquery-2.1.1.min.js"}
     %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"}

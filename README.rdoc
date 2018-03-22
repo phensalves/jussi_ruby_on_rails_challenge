@@ -13,13 +13,17 @@ Quadrinho: título, número da capa e imagem (todos disponibilizados na api exte
 
 Será interessante dispor de endpoints de um CRUD em sua própria api e rotas que aceitem parâmetros para efetuar buscas. Todos os requests deverão ter o mínimo de segurança aceitável por parte da API.
 
-Não utilize nenhuma gem externa para a construção da API e é importante utilizar o Rails a partir da versão 3 ou 4 (5 é um diferencial).
+Não utilize nenhuma gem externa para a construção da sua estrutura de  API e para o consumo da api Marvel (nada de meios Nutella, queremos consumo de APIs raiz! lol).
 
-Como fator diferencial, pedimos para espetar essa API no Elasticsearch e utilize a gem oficial do Elasticsearch:
+Como nem todo mundo que consumir essa api terá uma internet rápida, usaremos uma ferramenta para otimizar nossas requests e buscas, o Elasticsearch.
+
+Crie 2 endpoints para a parte de listagem: um fora do Elasticsearch, exibindo apenas o nome do personagem e id, e um segundo endpoint de listagem que bate no Elasticsearch para trazer id, nome e imagem.
+
+Utilize as gems oficiais:
 * 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 * 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 
-Para esse caso, ao menos disponibilize o endpoint de listagem no Elasticsearch.
+Você NÃO precisa criar uma lógica para direcionar os acessos. Apenas crie esses dois endpoints e documente a forma de acesso à  eles.
 
 === Exigências:
 - Rails 3, 4 ou 5
@@ -28,7 +32,7 @@ Para esse caso, ao menos disponibilize o endpoint de listagem no Elasticsearch.
 - API REST (JSON)
 - Documentação explicando como subir o projeto em desenvolvimento, e o funcionamento de seu sistema assim como execução dos testes
 
-É permitido a utilização de qualquer banco relacional que esteja habituado em ambiente de desenvolvimento, entretanto, é necessária a utilização do Postgres em produção.
+É permitido a utilização de qualquer banco relacional que esteja habituado em ambiente de desenvolvimento, entretanto, é necessária a utilização do Postgres em produção (se você hospedar no Heroku).
 
 Pedimos que abra o pull request para o repositório assim que o teste for finalizado.
 

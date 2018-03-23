@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Visitor visit homepage' do
-  scenario 'success' do
+  scenario 'successful' do
    
    visit root_path
    

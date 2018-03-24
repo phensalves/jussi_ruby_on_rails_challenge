@@ -6,7 +6,9 @@ class MarvelApiConsume
 	private
 
 	def characters		
-		response = Net::HTTP.get(URI.parse("http://gateway.marvel.com/v1/public/characters?limit=100&ts=1517861100&apikey=c513ed6bb8b5f32fd251bd7b2a8d41af&hash=17d76d0693a1c82362358c6c9d75e9b9"))
+		ts = Time.now.to_i.to_s
+		hash_digest = md5_generator(ts)
+		response = Net::HTTP.get(URI.parse("http://gateway.marvel.com/v1/public/characters?limit=100&ts=#{ts}&apikey=#{ENV["MARVEL_PUBLIC_KEY"]}&hash=#{hash_digest}"))
 
 		data = JSON.parse(response)
 
@@ -19,9 +21,12 @@ class MarvelApiConsume
 	end
 
 	def comics(marvel_id)
+		ts = Time.now.to_i.to_s
+		hash_digest = md5_generator(ts)
+
 		character = Character.find(marvel_id)
 
-		response = Net::HTTP.get(URI.parse("https://gateway.marvel.com/v1/public/characters/#{marvel_id}/comics?ts=1517861100&apikey=c513ed6bb8b5f32fd251bd7b2a8d41af&hash=17d76d0693a1c82362358c6c9d75e9b9"))
+		response = Net::HTTP.get(URI.parse("https://gateway.marvel.com/v1/public/characters/#{marvel_id}/comics?ts=#{ts}&apikey=#{ENV["MARVEL_PUBLIC_KEY"]}&hash=#{hash_digest}"))
 
 		data = JSON.parse(response)
 
@@ -32,7 +37,12 @@ class MarvelApiConsume
 				comic = Comic.new(id: item["id"], title: item["title"], cover: item["digitalId"], image: item["thumbnail"]["path"])
 				comic.save!
 			end
-			character.comics << comic			
+			character.comics << comic
 		end
+	end
+
+	def md5_generator(ts)
+		md5 = Digest::MD5.new
+		md5 << ts << ENV["MARVEL_PRIVATE_KEY"] << ENV["MARVEL_PUBLIC_KEY"]
 	end
 end

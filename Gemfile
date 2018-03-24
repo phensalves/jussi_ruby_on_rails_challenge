@@ -43,6 +43,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'pry-byebug',            '~> 3.5'
+  gem 'dotenv-rails',          '~> 2.2' 
 end
 
 group :development do

@@ -34,6 +34,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'pg',       '~> 0.21'
+gem 'sidekiq',  '~> 4.0'
+gem 'sidekiq-scheduler', '~> 2.0'
 
 
 group :development, :test do

@@ -5,7 +5,7 @@ class MarvelApiConsume
 
 	private
 
-	def characters		
+	def characters
 		ts = Time.now.to_i.to_s
 		hash_digest = md5_generator(ts)
 		response = Net::HTTP.get(URI.parse("http://gateway.marvel.com/v1/public/characters?limit=100&ts=#{ts}&apikey=#{ENV["MARVEL_PUBLIC_KEY"]}&hash=#{hash_digest}"))
@@ -13,7 +13,7 @@ class MarvelApiConsume
 		data = JSON.parse(response)
 
 		data["data"]["results"].each do |item|
-			character = Character.new(marvel_id: item["id"], name: item["name"], image: item["thumbnail"]["path"], modified: item["modified"])
+			character = Character.new(marvel_id: item["id"], name: item["name"], image: item["thumbnail"]["path"]+"/portrait_xlarge.jpg", modified: item["modified"])
 			character.save!
 
 			comics(item["id"])
@@ -34,7 +34,7 @@ class MarvelApiConsume
 			begin
 				comic = Comic.find(item["id"])
 			rescue ActiveRecord::RecordNotFound
-				comic = Comic.new(id: item["id"], title: item["title"], cover: item["digitalId"], image: item["thumbnail"]["path"])
+				comic = Comic.new(id: item["id"], title: item["title"], cover: item["digitalId"], image: item["thumbnail"]["path"]+"/portrait_xlarge.jpg")
 				comic.save!
 			end
 			character.comics << comic

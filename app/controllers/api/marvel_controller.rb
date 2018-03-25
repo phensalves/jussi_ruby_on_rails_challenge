@@ -1,6 +1,4 @@
 class Api::MarvelController < ApplicationController
-	http_basic_authenticate_with name: "marvel", password: "marvel"
-
 	def index
 		characters = Character.all
 		render json: {status: 'SUCCESS', message:'All characters loaded below', data:characters}, status: :ok

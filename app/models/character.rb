@@ -4,5 +4,9 @@ class Character < ApplicationRecord
   
 	has_and_belongs_to_many :comics
 
-	Character.import force: true
+	begin
+		Character.import force: true
+	rescue => e
+		Rails.logger.info(e)
+	end
 end

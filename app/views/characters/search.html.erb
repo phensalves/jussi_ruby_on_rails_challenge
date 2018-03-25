@@ -1,7 +1,11 @@
 <h1><%="Search results for #{@query}: "%></h1>
 
-<% @characters.each do |character| %>
-    <h3><%= character.name %></h3>
-    <p><%= character.modified %></p>
-    <p><%= character.image %></p>
+<% if @results.empty? %>
+   <h2><%= "Sorry, we cant find any results for #{@query}" %></h2>
+<% else %>
+    <% @characters.each do |character| %>
+        <h3><%= character.name %></h3>
+        <p><%= character.modified %></p>
+        <p><%= character.image %></p>
+    <% end %>
 <% end %>

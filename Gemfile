@@ -36,7 +36,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'pg',       '~> 0.21'
 gem 'sidekiq',  '~> 4.0'
 gem 'sidekiq-scheduler', '~> 2.0'
-
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -10,30 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180321170819) do
-
+ActiveRecord::Schema.define(version: 20_180_321_170_819) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "characters", primary_key: "marvel_id", force: :cascade do |t|
-    t.string "name"
-    t.string "image"
-    t.datetime "modified"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'characters', primary_key: 'marvel_id', force: :cascade do |t|
+    t.string 'name'
+    t.string 'image'
+    t.datetime 'modified'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "characters_comics", id: false, force: :cascade do |t|
-    t.bigint "character_id", null: false
-    t.bigint "comic_id", null: false
+  create_table 'characters_comics', id: false, force: :cascade do |t|
+    t.bigint 'character_id', null: false
+    t.bigint 'comic_id', null: false
   end
 
-  create_table "comics", force: :cascade do |t|
-    t.string "title"
-    t.integer "cover"
-    t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'comics', force: :cascade do |t|
+    t.string 'title'
+    t.integer 'cover'
+    t.string 'image'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
-
 end

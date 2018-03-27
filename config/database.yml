@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: marvel_jussi_development
+  pool: 5
+  username: infra
+  password:
+
+test:
+  adapter: postgresql
+  encoding: utf8
+  database: marvel_jussi_test
+  pool: 5
+  username: infra
+  password:
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: marvel_jussi_test
+  pool: 5
+  username: infra
+  password:

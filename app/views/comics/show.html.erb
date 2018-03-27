@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Marvel Comic details</h1>
+<table>
+  <tr><td><%= image_tag "#{@comic.image}" %></td></tr>
+	<tr><td>ID: </td><td><%= @comic.id %></td></tr>
+	<tr><td>Title: </td><td><%= @comic.title %></td></tr>
+</table>
+
+<%= link_to 'Edit', edit_comic_path(@comic) %> |
+<%= link_to 'Back', comics_path %>

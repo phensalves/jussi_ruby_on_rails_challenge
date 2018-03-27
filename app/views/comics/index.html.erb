@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Comics</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comics.each do |comic| %>
+      <tr>
+        <td><%= comic.id %></td>
+        <td><%= comic.title %></td>
+        <td><%= link_to 'Show', comic %></td>
+        <td><%= link_to 'Edit', edit_comic_path(comic) %></td>
+        <td><%= link_to 'Destroy', comic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Comic', new_comic_path %>

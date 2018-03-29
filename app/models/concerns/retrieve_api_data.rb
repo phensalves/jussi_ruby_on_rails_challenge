@@ -27,8 +27,16 @@ class RetrieveApiData
       character.save
     end
   end
+  
+  def search_comics(character)
+    uri = URI "#{Rails.configuration
+               .apis['comics_url']}#{character.marvel_id}/comics?"\
+               "ts=#{@timestamp}&limit=#{@limit}"\
+               "&apikey=#{@public_key}&hash=#{access_key}"
 
-  #json["data"]["results"][1]["name"]
+    JSON.parse(Net::HTTP.get(uri))["data"]["results"]
+  end
+
   private
   
   def access_key

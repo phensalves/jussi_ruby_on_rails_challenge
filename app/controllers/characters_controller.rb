@@ -8,4 +8,9 @@ class CharactersController < ApplicationController
     @query = params[:query]
     @results = Character.where('name LIKE ?', @query)
   end
+  
+  def show
+    @character = Character.find params[:id]
+  end
+
 end

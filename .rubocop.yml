@@ -22,3 +22,6 @@ AllCops:
   UseCache: false
 Metrics/BlockLength:
   ExcludedMethods: ['describe', 'context', 'feature', 'scenario', 'let', 'it']
+Metrics/LineLength:
+  Max: 180
+

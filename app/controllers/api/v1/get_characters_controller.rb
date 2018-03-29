@@ -5,9 +5,9 @@ module Api
       character.save
     end
   end
-  
+
   private
-  
+
   def required_params
     params.require(:character).permit(:marvel_id, :name, :image, :modified)
   end

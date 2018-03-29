@@ -1,0 +1,4 @@
+    <h3><%= link_to @character.name, character_path(@character) %></h3>
+    <p><%= @character.modified %></p>
+    <p><%= @character.image %></p>
+    <h4><%= link_to 'Comics', character_comics_path(@character) %></h4>

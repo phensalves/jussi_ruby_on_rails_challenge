@@ -1,0 +1,9 @@
+test:
+  characters_url: http://gateway.marvel.com/v1/public/characters?
+  comics_url: https://gateway.marvel.com/v1/public/characters/
+development:
+  characters_url: http://gateway.marvel.com/v1/public/characters?
+  comics_url: https://gateway.marvel.com/v1/public/characters/
+production:
+  characters_url: http://gateway.marvel.com/v1/public/characters?
+  comics_url: https://gateway.marvel.com/v1/public/characters/

@@ -1,0 +1,6 @@
+Welcome to Marvels characters search
+<%= form_tag(search_characters_path, method: 'get') do %>
+<%= label_tag(:query, 'Search here:') %>
+<%= text_field_tag(:query) %>
+<%= submit_tag("Search") %>
+<% end %>

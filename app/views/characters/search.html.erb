@@ -1,0 +1,9 @@
+<h1><%="Search results for #{@query}: "%></h1>
+
+<% if @results.empty? %>
+   <h2><%= "Sorry, we cant find any results for #{@query}" %></h2>
+<% else %>
+    <% @results.each do |character| %>
+        <h3><%= link_to character.name, character_path(character) %></h3>
+    <% end %>
+<% end %>

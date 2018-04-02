@@ -33,7 +33,7 @@ module Api
 
       def destroy
         @comic_book = ComicBook.find(params[:id])
-        if @comic_book.destroy)
+        if @comic_book.destroy
           render :show, status: 201
         else
           render :fail, status: 422

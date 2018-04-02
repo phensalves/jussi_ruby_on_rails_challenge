@@ -31,6 +31,16 @@ module Api
         end
       end
 
+      def characters_elastic
+        @characters = ::Characters::ElasticsearchResponseManager.new
+        render :characters_elastic
+      end
+
+      def characters_elastic_full
+        @characters = ::Characters::ElasticsearchResponseManager.new
+        render :characters_elastic_full
+      end
+
       private
 
       def character_params

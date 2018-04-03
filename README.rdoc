@@ -1,4 +1,4 @@
-=== VERSOES UTILIZADAS
+= VERSOES UTILIZADAS
 - Rails 5.1.6
 - Ruby 2.3.1p112
 - Elasticsearch 6.2.3

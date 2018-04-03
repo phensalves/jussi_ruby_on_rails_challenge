@@ -33,13 +33,21 @@ module Api
       end
 
       def characters_elastic
-        @characters = ::Characters::ElasticsearchResponseManager.new
-        render :characters_elastic
+        if params[:name].present?
+          @characters = Character.search(params[:name]).results
+          render :characters_elastic, status: 201
+        else
+          render :fail, status: 422
+        end
       end
 
       def characters_elastic_full
-        @characters = ::Characters::ElasticsearchResponseManager.new
-        render :characters_elastic_full
+        if params[:name].present?
+          @characters = Character.search(params[:name]).results
+          render :characters_elastic_full, status: 201
+        else
+          render :fail, status: 422
+        end
       end
 
       private
@@ -49,7 +57,7 @@ module Api
       end
 
       def start_collect_data
-        PopulateWorker.perform_async()
+        PopulateWorker.perform_async
       end
     end
   end

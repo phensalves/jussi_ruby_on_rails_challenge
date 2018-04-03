@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180402022222) do
+ActiveRecord::Schema.define(version: 20180403043942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "characters", force: :cascade do |t|
     t.integer "id_marvel"
@@ -21,6 +22,7 @@ ActiveRecord::Schema.define(version: 20180402022222) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.hstore "resources", default: [], array: true
   end
 
   create_table "comic_books", force: :cascade do |t|
@@ -38,6 +40,12 @@ ActiveRecord::Schema.define(version: 20180402022222) do
     t.datetime "updated_at", null: false
     t.index ["character_id"], name: "index_participations_on_character_id"
     t.index ["comic_book_id"], name: "index_participations_on_comic_book_id"
+  end
+
+  create_table "tokens", force: :cascade do |t|
+    t.string "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

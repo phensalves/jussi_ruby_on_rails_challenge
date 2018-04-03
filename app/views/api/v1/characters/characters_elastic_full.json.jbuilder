@@ -1,3 +1,3 @@
-json.array! @characters do |characters|
-  json.partial! 'character_elastic_full', characters: characters
+json.array! @characters do |character|
+  json.partial! 'character_elastic_full', character: character
 end

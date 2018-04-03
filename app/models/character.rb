@@ -4,7 +4,9 @@ class Character < ActiveRecord::Base
 
 	has_many	:participations
 	has_many	:comic_books, through: :participations
+  validates :id_marvel, presence: true, uniqueness: true
 
+  after_create :create_comic_books
 
   #MAPPING ELASTIC
   settings index: { number_of_shards: 1, number_of_replicas: 0 } do
@@ -22,4 +24,11 @@ class Character < ActiveRecord::Base
       image:             self.image,
     }
   end
+
+  private
+
+  def create_comic_books
+    PopulateComicBooksWorker.perform_async(self.id)
+  end
+
 end

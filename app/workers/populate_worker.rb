@@ -1,7 +1,7 @@
-namespace :characters do
+class PopulateWorker
+  include Sidekiq::Worker
 
-  desc 'Collect and Populate Charactersß  '
-  task collect: :environment do
+  def perform(options={})
     url = 'http://gateway.marvel.com/v1/public/characters' + marvel_request_params 
     characters = marvel_request(url)
     characters.each do |hero|

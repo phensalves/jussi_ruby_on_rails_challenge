@@ -1,48 +1,27 @@
-= Jussi Ruby on Rails Challenge
-Construção de API de heróis da Marvel
-
-Antes de mais nada faça um fork desse projeto.
-
-Você deverá criar uma conta no site "https://developer.marvel.com" e gerar uma api key para consumo desta. Feito isso, consuma o endpoint '/v1/public/characters' da Marvel e persista alguns registros em seu próprio banco de dados (ao menos 100 registros de personagens).
-
-Então, construa uma estrutura de api própria, utilizando Ruby on Rails que deverá ter endpoints que listarão os personagens persistidos em seu próprio banco, e outro endpoint que exibirá os detalhes desse personagem com as HQ's (na documentação da API da Marvel você encontrará o endpoint que lhe entregará essa informação) que os mesmos pertençam. Lembre-se de construir os devidos relacionamentos.
-
-=== Estrutura do banco
-Personagem: deverá ter ao menos id marvel, nome, imagem e "modificado em" (todos disponibilizados na api externa)
-Quadrinho: título, número da capa e imagem (todos disponibilizados na api externa)
-
-Será interessante dispor de endpoints de um CRUD em sua própria api e rotas que aceitem parâmetros para efetuar buscas. Todos os requests deverão ter o mínimo de segurança aceitável por parte da API.
-
-Não utilize nenhuma gem externa para a construção da sua estrutura de  API e para o consumo da api Marvel (nada de meios Nutella, queremos consumo de APIs raiz! lol).
-
-Como nem todo mundo que consumir essa api terá uma internet rápida, usaremos uma ferramenta para otimizar nossas requests e buscas, o Elasticsearch.
-
-Crie 2 endpoints para a parte de listagem: um fora do Elasticsearch, exibindo apenas o nome do personagem e id, e um segundo endpoint de listagem que bate no Elasticsearch para trazer id, nome e imagem.
-
-Utilize as gems oficiais:
-* 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
-* 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
-
-Você NÃO precisa criar uma lógica para direcionar os acessos. Apenas crie esses dois endpoints e documente a forma de acesso à  eles.
-
-=== Exigências:
-- Rails 3, 4 ou 5
-- Ruby a partir do 2.2.2
-- Elasticsearch
+=== VERSOES UTILIZADAS
+- Rails 5.1.6
+- Ruby 2.3.1p112
+- Elasticsearch 6.2.3
 - API REST (JSON)
-- Documentação explicando como subir o projeto em desenvolvimento, e o funcionamento de seu sistema assim como execução dos testes
+- SIDEKIQ 5.1.3
 
-É permitido a utilização de qualquer banco relacional que esteja habituado em ambiente de desenvolvimento, entretanto, é necessária a utilização do Postgres em produção (se você hospedar no Heroku).
+=== Como subir o Projeto:
+- Execute ```bundle exec rails s```
+- Execute ```elasticsearch```
+- Execute ```bundle exec sidekiq```
 
-Pedimos que abra o pull request para o repositório assim que o teste for finalizado.
+- Execute ```bundle exec rake db:seed``` => Ele vai criar o Token que vamos utilizar para acessar as rotas
+- Faça uma requisição na rota '/api/v1/characters', utilizando o Token de acesso -> key: Api-Key  value: X/w5jIHXq+krWtVlAhkepQ==
 
-=== Diferencial:
-- Sidekiq para eventualmente gerenciar jobs assíncronos
-- Disponibilizar um link para a aplicaço hospedada no Heroku
-- Habilitar algum tipo de busca no elasticsearch
+Ao acessar essa rota, a aplicação starta o sidekiq para a criação dos personagens e das HQ`s
 
-Lembre-se que seu código será avaliado tanto em funcionalidade quanto em estética (clean code sempre).
+- Acesse novamente essa rota após alguns segundos e os Personagens estaram criados, assim como as HQ`s
 
-Uma boa cobertura de testes será avaliada. Utilize o framework/gem de sua preferência.
+=== Endpoints Elastichsearch
 
-Boa Sorte!
+/api/v1/characters/characters_elastic -> contem somente o nome e id
+
+/api/v1/characters/characters_elastic_full -> contem somente o nome, id e imagem
+
+obs1: enviar o parametro "name" para realização da busca.
+obs2: Como só vamos precisar do nome, id e imagem, só importei para o elasticsearch as informações necessarias.

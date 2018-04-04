@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  pool: 40
+  database: jussi-api-test_development
+
+test:
+  <<: *default
+  database: jussi-api-test_test
+
+production:
+  <<: *default
+  database: jussi-api-test_production
+  username: jussi-api-test
+  password: <%= ENV['JUSSI-API-TEST_DATABASE_PASSWORD'] %>

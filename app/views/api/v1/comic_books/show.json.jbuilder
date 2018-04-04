@@ -1,0 +1,1 @@
+json.partial! 'comic_book', comic_book: @comic_book

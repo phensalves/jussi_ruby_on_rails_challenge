@@ -1,4 +1,4 @@
-= VERSOES UTILIZADAS
+=== VERSOES UTILIZADAS
 - Rails 5.1.6
 - Ruby 2.3.1p112
 - Elasticsearch 6.2.3
@@ -23,5 +23,6 @@ Ao acessar essa rota, a aplicação starta o sidekiq para a criação dos person
 
 /api/v1/characters/characters_elastic_full -> contem somente o nome, id e imagem
 
-obs1: enviar o parametro "name" para realização da busca.
+obs1: enviar o parametro "q" para realização da busca no elasticsearch.
+
 obs2: Como só vamos precisar do nome, id e imagem, só importei para o elasticsearch as informações necessarias.

@@ -9,10 +9,11 @@ class MarvelApi
 
   def marvel_request_params
     ts = 100
-    api_key = 'd33768908d6ac342bcda2d942d239037'
-    private_key = 'f6b4d5be7acd2593c5976ab2780a6d149433d21a'
+    limit = 100
+    api_key = 'd343ee26e8157f2d43f16c00615eb1f4'
+    private_key = '79a2e82ab086439ede352fc941bcaf363856a114'
     hash = Digest::MD5.hexdigest(ts.to_s + private_key + api_key)
-    "?limit=100&ts=#{ts}&apikey=#{api_key}&hash=#{hash}"
+    "?limit=#{limit}&ts=#{ts}&apikey=#{api_key}&hash=#{hash}"
   end
 
   def marvel_request

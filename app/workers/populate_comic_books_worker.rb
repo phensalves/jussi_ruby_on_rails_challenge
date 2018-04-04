@@ -4,8 +4,12 @@ class PopulateComicBooksWorker
   def perform(id)
     character = Character.find_by_id(id)
     return unless character
+    character.resources.each{ |resource| character.comic_books << create_or_find_comic_book(resource) }
+    character.save
+  end
 
-    character.resources.each{ |resource| character.comic_books.new(get_comic_book(resource)).save }  
+  def create_or_find_comic_book(resource)
+    ComicBook.find_by_title(resource["name"]).present? ? ComicBook.find_by_title(resource["name"]) : ComicBook.create(get_comic_book(resource))
   end
 
   def get_comic_book(resource={})
